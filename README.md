@@ -1,0 +1,4 @@
+PyQtPlayer
+==========
+
+Reproductor de video
