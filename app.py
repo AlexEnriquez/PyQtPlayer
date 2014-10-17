@@ -24,7 +24,6 @@ class Window(QWidget):
         self.mainLayout.addWidget(self.btnPuase ,4,2)
         self.setLayout(self.mainLayout)
         self.setMinimumSize(500,500)
-        self.setMinimumSize(500,500)
 
     def Bindings(self):
         self.duration.setValue(0)
