@@ -1,5 +1,5 @@
 PyQtPlayer
 ==========
 
-Reproductor de video
+Reproductor de video ||
 Video player
