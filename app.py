@@ -1,9 +1,7 @@
-__author__ = 'alexis'
-import sys,datetime
+__author__ = 'Alex Enriquez'
+import sys
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4 import uic
-from PyQt4.QtNetwork import QTcpServer,QTcpSocket
 from PyQt4.phonon import Phonon
 
 class Window(QWidget):
@@ -11,7 +9,7 @@ class Window(QWidget):
         super(Window, self).__init__(parent)
         self.UIGenerator()
         self.Bindings()
-        #self.videoPlayer.show()
+        
     def UIGenerator(self):
         self.mainLayout=QGridLayout()
         self.videoPlayer=Phonon.VideoPlayer()
@@ -30,19 +28,19 @@ class Window(QWidget):
 
     def Bindings(self):
         self.duration.setValue(0)
-        self.btnPlay.clicked.connect(self.Reproducir)
-        self.btnStop.clicked.connect(self.Detener)
-        self.btnPuase.clicked.connect(self.Pausar)
+        self.btnPlay.clicked.connect(self.Play)
+        self.btnStop.clicked.connect(self.Stop)
+        self.btnPuase.clicked.connect(self.Pause)
 
-    def Reproducir(self):
+    def Play(self):
 
-        self.videoPlayer.load(Phonon.MediaSource("You Could Be Mine.mp4"))
+        self.videoPlayer.load(Phonon.MediaSource("Here Put the name of your video.*"))
         self.videoPlayer.play()
 
-    def Detener(self):
+    def Stop(self):
         self.videoPlayer.stop()
 
-    def Pausar(self):
+    def Pause(self):
 
         if self.videoPlayer.isPaused():
             self.videoPlayer.play()
@@ -60,6 +58,6 @@ if __name__=="__main__":
         ventana.show()
         sys.exit(app.exec_())
     except SystemExit:
-        print "You have exited"
+        print "Thanks for use it"
 
 
