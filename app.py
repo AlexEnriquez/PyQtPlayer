@@ -46,8 +46,6 @@ class Window(QWidget):
         else:
             self.videoPlayer.pause()
 
-
-
 if __name__=="__main__":
 
     try:
@@ -58,5 +56,3 @@ if __name__=="__main__":
         sys.exit(app.exec_())
     except SystemExit:
         print "Thanks for use it"
-
-
