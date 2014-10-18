@@ -9,7 +9,8 @@ class Window(QWidget):
         super(Window, self).__init__(parent)
         self.UIGenerator()
         self.Bindings()
-        
+   
+   # se encarga de Instanciar los controles
     def UIGenerator(self):
         self.mainLayout=QGridLayout()
         self.videoPlayer=Phonon.VideoPlayer()
@@ -24,30 +25,31 @@ class Window(QWidget):
         self.mainLayout.addWidget(self.btnPuase ,4,2)
         self.setLayout(self.mainLayout)
         self.setMinimumSize(500,500)
-
+        
+    #Ejecuta los bindings de cada control
     def Bindings(self):
         self.duration.setValue(0)
         self.btnPlay.clicked.connect(self.Play)
         self.btnStop.clicked.connect(self.Stop)
         self.btnPuase.clicked.connect(self.Pause)
 
+    #Metodo que reproduce el video
     def Play(self):
-
-        self.videoPlayer.load(Phonon.MediaSource("Here Put the name of your video.*"))
+        self.videoPlayer.load(Phonon.MediaSource("Here Put the name of your video.*"))#fomrato soportado por le momento wmv
         self.videoPlayer.play()
-
+        
+    #Metodo que detiene el video
     def Stop(self):
         self.videoPlayer.stop()
-
+        
+    #Metodo que pausa el video
     def Pause(self):
-
         if self.videoPlayer.isPaused():
             self.videoPlayer.play()
         else:
             self.videoPlayer.pause()
 
 if __name__=="__main__":
-
     try:
         app=QApplication(sys.argv)
         app.setStyle("Plastique")
